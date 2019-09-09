@@ -1,0 +1,42 @@
+<div ng-controller="ptDischargeSummaryCtrl" layout="column" ng-cloak class="md-inline-form">
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <h1 flex md-truncate class="md-headline">{{ title }}</h1>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+    <section layout-gt-sm="row" layout-align-gt-sm="center start">
+      <div flex-gt-sm="60">
+        <span>CRITICAL CARE NURSES LLC</span><br/>
+        <address>
+          <span>1945 E. Warm Springs Road</span><br/>
+          <span>Las Vegas, NV 89119</span><br/>
+          <span>Phone: (702) 342-9000 | Fax: (702) 315-5505</span>
+        </address>
+      </div>
+      <div flex-gt-sm="20">
+        <strong>PT Discharge Summary</strong><br/>
+      </div>
+    </section>
+    <div layout-gt-sm="row" layout-align-gt-sm="center start">
+      <md-input-container flex-gt-sm="40">
+        <label>Patient Name</label>
+        <input type="text" ng-model="patient.name" required="">
+      </md-input-container>
+      <md-input-container flex-gt-sm="20">
+        <label>MRN</label>
+        <input type="text" ng-model="patient.mrn">
+      </md-input-container>
+      <md-input-container flex-gt-sm="20">
+        <label>DOB</label>
+        <input type="text" ng-model="patient.dob">
+      </md-input-container>
+    </div>
+    <div layout-gt-xs="row" layout-align-gt-xs="center start">
+      <md-input-container flex-gt-xs="39">
+        <label>Episode</label>
+        <input type="text" ng-model="patient.episode">
+      </md-input-container>
+    </div>
+  </md-content>
+</div>
