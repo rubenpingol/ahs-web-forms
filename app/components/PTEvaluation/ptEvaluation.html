@@ -1,0 +1,417 @@
+<div ng-controller="ptEvaluationCtrl">
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <h1 flex md-truncate class="md-headline">{{ title }}</h1>
+    </div>
+  </md-toolbar>
+  <div layout="row" layout-margin layout-wrap layout-fill ng-cloak>
+    <md-whiteframe class="md-whiteframe-1dp" flex layout-aling="center">
+      <!-- Page 1 Header -->
+      <md-content layout-padding>
+        <div layout-gt-sm="row" layout-align-gt-sm="center start">
+          <div flex-gt-sm="60">
+            <span>CRITICAL CARE NURSES LLC</span><br />
+            <address>
+              <span>1945 E. Warm Springs Road</span><br />
+              <span>Las Vegas, NV 89119</span><br />
+              <span>Phone: (702) 342-9000 | Fax: (702) 315-5505</span>
+            </address>
+          </div>
+          <div flex-gt-sm="40" flex-align-gt-sm="center start">
+            <div class="md-headline" ng-style="{textAlign: 'center'}">PT Evaluation</div>
+          </div>
+        </div>
+      </md-content>
+      <md-divider></md-divider>
+
+      <!-- Page 1 Intro -->
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm="40">
+            <md-input-container class="md-block">
+              <label>Patient Name</label>
+              <input type="text" ng-model="patient.patient_name"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="30">
+            <md-input-container class="md-block">
+              <label>MR</label>
+              <input type="text" ng-model="patient.mr" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Visit Date</label>
+              <md-datepicker ng-model="patient.visit_date" aria-label="Visit Date"></md-datepicker>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Time In</label>
+              <md-datepicker ng-model="patient.time_in" aria-label="Time In"></md-datepicker>
+            </md-input-container>
+          </div>
+        </div>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm="45">
+            <md-input-container class="md-block">
+              <label>Episode/Period</label>
+              <input type="text" ng-model="patient.episode"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="40">
+            <md-input-container class="md-block">
+              <label>Physician</label>
+              <input type="text" ng-model="patient.physician"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Time Out</label>
+              <md-datepicker ng-model="patient.time_out" aria-label="Time Out"></md-datepicker>
+            </md-input-container>
+          </div>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Vital Signs -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">Vital Signs</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="patient.vital_signs_na" class="md-primary">N/A</md-checkbox>
+          </div>
+        </div>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>SBP</label>
+              <input type="text" ng-model="patient.sbp" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>DBP</label>
+              <input type="text" ng-model="patient.dbp" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>HR</label>
+              <input type="text" ng-model="patient.hr" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Resp</label>
+              <input type="text" ng-model="patient.resp" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Temp</label>
+              <input type="text" ng-model="patient.temp" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Weight</label>
+              <input type="text" ng-model="patient.weight" />
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="10">
+            <md-input-container class="md-block">
+              <label>O2 Sat</label>
+              <input type="text" ng-model="patient.patient_name"/>
+            </md-input-container>
+          </div>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Mental Assessment -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">Mental Assessment</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="patient.mental_assessment_na" class="md-primary">N/A</md-checkbox>
+          </div>
+        </div>
+        <div layout-gt-sm="row" layout-align-gt-sm="space-between start">
+          <div flex-gt-sm="50">
+            <md-input-container class="md-block">
+              <label>Orientation</label>
+              <input type="text" ng-model="patient.mental_assessment.orientation"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Level of Consciousness</label>
+              <input type="text" ng-model="patient.mental_assessment.lvl_of_consciousness"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="40">
+            <md-input-container class="md-block">
+              <label>Comment</label>
+              <textarea ng-model="patient.mental_assessment.comment" md-maxlength="255" rows="3" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Pain Assessment -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">Pain Assessment</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="patient.pain_assessment_na" class="md-primary">N/A</md-checkbox>
+          </div>
+        </div>
+        <div layout-gt-sm="row" layout-align-gt-sm="space-between start">
+          <div flex-gt-sm="45">
+            <md-input-container class="md-block">
+              <label>Pain Location</label>
+              <input type="text" ng-model="patient.pain_assessment.pain_location"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Pain Level</label>
+              <input type="text" ng-model="patient.pain_assessment.pain_level"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="45">
+            <md-input-container class="md-block">
+              <label>Increased by</label>
+              <input type="text" ng-model="patient.pain_assessment.increased_by"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Relived by</label>
+              <input type="text" ng-model="patient.pain_assessment.relieved_by"/>
+            </md-input-container>
+          </div>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Living Situation -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">Living Situation</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <md-checkbox md-no-ink aria-label="Not Applicable" ng-model="patient.living_situation_na" class="md-primary">N/A</md-checkbox>
+          </div>
+        </div>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm="50">
+            <div ng-style="{marginBottom: '15px'}">
+              <strong>Dwelling Level</strong>
+            </div>
+            <div layout-gt-sm="row">
+              <div flex-gt-sm="">
+                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="patient.living_situation.dwelling_level_one" class="md-primary">One</md-checkbox>
+              </div>
+              <div flex-gt-sm="">
+                <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="patient.living_situation.dwelling_level_multi" class="md-primary">Multiple</md-checkbox>
+              </div>
+            </div>
+          </div>
+          <div flex-gt-sm="50">
+            <div ng-style="{marginBottom: '15px'}">
+              <strong>Stairs</strong>
+            </div>
+            <div layout-gt-sm="row">
+              <div flex-gt-sm="25">
+                <md-input-container class="md-block">
+                  <label># steps</label>
+                  <input type="text" ng-model="patient.living_situation.num_stemps"/>
+                </md-input-container>
+              </div>
+              <div flex-gt-sm="25"></div>
+              <div flex-gt-sm="25">
+                <md-checkbox md-no-ink aria-label="Yes Stairs" ng-model="patient.living_situation.stairs_yes" class="md-primary">Yes</md-checkbox>
+              </div>
+              <div flex-gt-sm="25">
+                <md-checkbox md-no-ink aria-label="No Stairs" ng-model="patient.living_situation.stairs_no" class="md-primary">No</md-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page 1 Living Situation:Lives With -->
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <div ng-style="{marginBottom: '15px'}">
+              <strong>Lives with</strong>
+            </div>
+            <div layout-gt-sm="row">
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="Lives Alone" ng-model="patient.living_situation.lives_with_alone" class="md-primary">Alone</md-checkbox>
+              </div>
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="Lives with Family" ng-model="patient.living_situation.lives_with_family" class="md-primary">Family</md-checkbox>
+              </div>
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="Lives with Friends" ng-model="patient.living_situation.lives_with_friends" class="md-primary">Friends</md-checkbox>
+              </div>
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="Lives with Spouse" ng-model="patient.living_situation.lives_with_spouse" class="md-primary">Significant Other</md-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page 1 Living Situation:Support -->
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <div ng-style="{marginBottom: '15px'}">
+              <strong>Support</strong>
+            </div>
+            <div layout-gt-sm="row">
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="Willing Caregiver Available" ng-model="patient.living_situation.support_willing_caregiver" class="md-primary">Willing caregiver available</md-checkbox>
+              </div>
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="Limited Caregiver Support" ng-model="patient.living_situation.support_limited_caregiver" class="md-primary">Limited caregiver support</md-checkbox>
+              </div>
+              <div flex-gt-sm>
+                <md-checkbox md-no-ink aria-label="No Caregiver Available" ng-model="patient.living_situation.lives_with_friends" class="md-primary">No caregiver available</md-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page 1 Living Situation:Home Safety Barriers -->
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Home Safety Barriers</label>
+            <input type="text" ng-model="patient.living_situation.home_safety_barriers"/>
+          </md-input-container>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Physical Assessment -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">Physical Assessment</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <md-checkbox md-no-ink aria-label="Not Applicable" ng-model="patient.physical_assessment_na" class="md-primary">N/A</md-checkbox>
+          </div>
+        </div>
+        <div layout-gt-sm="row" layout-align="space-between start">
+          <div flex-gt-sm="30">
+            <md-input-container class="md-block">
+              <label>Speech</label>
+              <input type="text" ng-model="patient.physical_assessment.speech"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Skin</label>
+              <input type="text" ng-model="patient.physical_assessment.skin"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Coordination</label>
+              <input type="text" ng-model="patient.physical_assessment.coordination"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Safety Awareness</label>
+              <input type="text" ng-model="patient.physical_assessment.safety_awareness"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="30">
+            <md-input-container class="md-block">
+              <label>Vision</label>
+              <input type="text" ng-model="patient.physical_assessment.vision"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Edema</label>
+              <input type="text" ng-model="patient.physical_assessment.edema"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Sensation</label>
+              <input type="text" ng-model="patient.physical_assessment.sensation"/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="30">
+            <md-input-container class="md-block">
+              <label>Hearing</label>
+              <input type="text" ng-model="patient.physical_assessment.hearing"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Muscle Tone</label>
+              <input type="text" ng-model="patient.physical_assessment.muscle_tone"/>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Endurance</label>
+              <input type="text" ng-model="patient.physical_assessment.endurance"/>
+            </md-input-container>
+          </div>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Prior and Current Level of Function -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">Prior and Current Level of Function</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row">
+          <div flex-gt-sm>
+            <md-checkbox md-no-ink aria-label="Not Applicable" ng-model="patient.pacleof_na" class="md-primary">N/A</md-checkbox>
+          </div>
+        </div>
+        <div layout="row">
+          <div flex>
+            <md-input-container class="md-block">
+              <label>Summary</label>
+              <textarea ng-model="patient.pacleof.summary" md-maxlength="255" rows="3" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+        </div>
+      </md-content>
+
+      <!-- Page 1 Footer -->
+      <md-toolbar class="md-hue-2" ng-style="{height: 'auto', minHeight: 'auto'}">
+        <div class="md-toolbar-tools" layout="row" layout-align="center center" ng-style="{paddingTop: '10px', paddingBottom: '10px', height: 'auto'}">
+          <div><strong class="small">&nbsp;</strong></div>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div layout-gt-sm="row" layout-align-gt-sm="space-between">
+          <div flex-gt-sm="30">
+            <md-input-container class="md-block">
+              <label>Signature</label>
+              <input type="text" ng-model="patient.signature" value="" disabled/>
+            </md-input-container>
+          </div>
+          <div flex-gt-sm="15">
+            <md-input-container class="md-block">
+              <label>Date</label>
+              <md-datepicker ng-model="patient.date" aria-label="Date"></md-datepicker>
+            </md-input-container>
+          </div>
+        </div>
+        <div layout-gt-sm="row" layout-align-gt-sm="space-between">
+          <div flex-gt-sm>
+            <strong>AXXESS</strong>
+          </div>
+          <div flex-gt-sm="8">
+            <cite>Page 1 of 8</cite>
+          </div>
+        </div>
+      </md-content>
+      
+    </md-whiteframe>
+  </div>
+</div>

@@ -7,7 +7,7 @@ angular.module('myApp', [
   'ngMessages',
   'myApp.ptaVisit1',
   'myApp.ptaVisit2',
-  'myApp.ptEval',
+  'myApp.ptEvaluation',
   'myApp.ptReEval',
   'myApp.ptReassessment',
   'myApp.ptDischarge',
@@ -45,8 +45,8 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     },
     {
       icon: descriptionSVG,
-      title: 'PT Eval',
-      path: '/pt-eval',
+      title: 'PT Evaluation',
+      path: '/pt-evaluation',
       filename: 'PTEval_637032796258926838.pdf'
     },
     {
